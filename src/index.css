@@ -143,7 +143,6 @@ img {
 /* Card Form  */
 .card__form {
   width: 380px;
-  min-width: 300px;
   border: none;
   color: var(--very-dark-violet);
 }
@@ -228,7 +227,7 @@ input {
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 700px) {
   .background__wrapper {
     grid-template-columns: none;
     overflow-x: hidden;
@@ -242,5 +241,24 @@ input {
     flex-direction: column-reverse;
     align-items: center;
     justify-content: center;
+  }
+
+  .front {
+    top: 170px;
+    z-index: 150;
+    left: -20px;
+  }
+
+  .back {
+    bottom: 180px;
+    left: 50px;
+  }
+  .input__group {
+    margin: 8px 0;
+    padding: 10px 0;
+  }
+
+  .card__form {
+    transform: translateY(-70px);
   }
 }
