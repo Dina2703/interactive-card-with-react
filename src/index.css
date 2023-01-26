@@ -21,6 +21,8 @@ body {
   background-color: var(--white);
   font-size: 14px;
   letter-spacing: 0.1rem;
+  background-image: url(./images/bg-main-desktop.png);
+  background-repeat: no-repeat;
 }
 
 img {
@@ -29,14 +31,13 @@ img {
 
 .container {
   width: 100%;
+  max-width: 1330px;
+  height: 100vh;
   margin: 0 auto;
   padding: 0 70px;
-  background-image: url(./images/bg-main-desktop.png);
-  background-repeat: no-repeat;
-  height: 100vh;
+
   display: flex;
   flex-direction: row-reverse;
-  flex: 1;
   align-items: center;
   justify-content: space-around;
 }
@@ -61,12 +62,16 @@ img {
   width: 430px;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
   border-radius: 10px;
-  height: 230px;
+  height: 250px;
   position: relative;
 }
 
+.card > img {
+  height: 100%;
+}
+
 .card:last-child {
-  align-self: end;
+  align-self: flex-end;
 }
 
 .card__box {
@@ -79,8 +84,7 @@ img {
 }
 
 .front__card_content {
-  padding: 25px;
-
+  padding: 27px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -95,6 +99,8 @@ img {
   font-size: 1.5rem;
   text-align: left;
   font-weight: 300;
+  position: relative;
+  top: 5px;
 }
 
 .details {
@@ -112,14 +118,16 @@ img {
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: end;
+  justify-content: flex-end;
   padding: 40px;
 }
 
 /* Card Form  */
 .card__form {
+  width: 380px;
   border: none;
   color: var(--very-dark-violet);
+  margin-right: 100px;
 }
 
 .card__form button {
@@ -147,7 +155,7 @@ img {
 }
 
 label {
-  padding-bottom: 10px;
+  margin-bottom: 10px;
   cursor: pointer;
   font-size: 13px;
   font-weight: 500;
@@ -157,6 +165,7 @@ input {
   padding: 0.7rem;
   border: solid var(--light-grayish-violet);
   border-radius: 8px;
+  outline: none;
 }
 
 ::placeholder {
@@ -172,8 +181,13 @@ input {
   display: grid;
   grid-template-columns: 42% 42%;
   gap: 8px;
+  margin-top: 10px;
 }
 
 .grid > *:last-child input {
   width: 100%;
+}
+
+.cvc {
+  margin-top: 10px;
 }

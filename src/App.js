@@ -42,10 +42,11 @@ function App() {
               <div>
                 <label htmlFor="name">CVC</label>
                 <input
+                  className="cvc"
                   type="text"
                   name="number"
                   id="number"
-                  placeholder="e.g. 1234 5678 9123 0000"
+                  placeholder="e.g. 123"
                 />
               </div>
             </div>
