@@ -20,6 +20,7 @@ body {
   height: 100vh;
   background-color: var(--white);
   font-size: 14px;
+  letter-spacing: 0.1rem;
 }
 
 img {
@@ -53,7 +54,6 @@ img {
   flex-direction: column;
   margin-right: 40px;
   color: var(--white);
-  letter-spacing: 0.1rem;
 }
 
 .card {
@@ -91,7 +91,7 @@ img {
   width: 100%;
 }
 
-.flex > *:first-child {
+.front__details > *:first-child {
   font-size: 1.5rem;
   text-align: left;
   font-weight: 300;
@@ -114,4 +114,66 @@ img {
   align-items: center;
   justify-content: end;
   padding: 40px;
+}
+
+/* Card Form  */
+.card__form {
+  border: none;
+  color: var(--very-dark-violet);
+}
+
+.card__form button {
+  width: 100%;
+  padding: 0.8rem 0;
+  margin-top: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: var(--very-dark-violet);
+  color: var(--white);
+  transition: scale 0.15s ease-in-out;
+}
+
+.card__form button:hover,
+.card__form button:active {
+  scale: 0.98;
+}
+
+.input__group {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0;
+  padding: 10px 0;
+}
+
+label {
+  padding-bottom: 10px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+input {
+  padding: 0.7rem;
+  border: solid var(--light-grayish-violet);
+  border-radius: 8px;
+}
+
+::placeholder {
+  color: var(--light-grayish-violet);
+}
+
+.input__group .grid {
+  display: inline-grid;
+  grid-template-columns: 45% 55%;
+}
+
+.input__group .date {
+  display: grid;
+  grid-template-columns: 42% 42%;
+  gap: 8px;
+}
+
+.grid > *:last-child input {
+  width: 100%;
 }

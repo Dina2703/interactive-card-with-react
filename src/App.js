@@ -7,13 +7,50 @@ function App() {
     <div className="container">
       <div className="card__form">
         <form action="">
-          <input
-            type="text"
-            name="name"
-            id="name"
-            placeholder="e.g. Jane Appleseed"
-          />
-          <label htmlFor="name">CARDHOLDER NAME</label>
+          <div className="input__group">
+            <label htmlFor="name">CARDHOLDER NAME</label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="e.g. Jane Appleseed"
+            />
+          </div>
+          <div className="input__group">
+            <label htmlFor="name">CARD NUMBER</label>
+            <input
+              type="text"
+              name="number"
+              id="number"
+              placeholder="e.g. 1234 5678 9123 0000"
+            />
+          </div>
+          <div className="input__group">
+            <div className="grid">
+              <div>
+                <label htmlFor="name">EXP.DATE(MM/YY)</label>
+                <div className="date">
+                  <input
+                    type="text"
+                    name="number"
+                    id="number"
+                    placeholder="MM"
+                  />
+                  <input type="text" name="year" id="year" placeholder="YY" />
+                </div>
+              </div>
+              <div>
+                <label htmlFor="name">CVC</label>
+                <input
+                  type="text"
+                  name="number"
+                  id="number"
+                  placeholder="e.g. 1234 5678 9123 0000"
+                />
+              </div>
+            </div>
+          </div>
+          <button type="submit">Confirm</button>
         </form>
       </div>
       <div
