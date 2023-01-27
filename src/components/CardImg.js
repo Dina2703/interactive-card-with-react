@@ -1,7 +1,6 @@
 import front from "../images/bg-card-front.png";
 import back from "../images/bg-card-back.png";
 import logo from "../images/card-logo.svg";
-import { useState } from "react";
 
 function CardImg({ form }) {
   const { name, cardNumber, month, year, cvc } = form;

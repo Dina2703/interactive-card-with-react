@@ -13,6 +13,7 @@ function CardForm({ form, handleChange, handleSubmit }) {
             value={name}
             onChange={handleChange}
             placeholder="e.g. Jane Appleseed"
+            required
           />
         </div>
         <div className="input__group">
@@ -20,7 +21,8 @@ function CardForm({ form, handleChange, handleSubmit }) {
           <input
             type="text"
             name="cardNumber"
-            value={cardNumber}
+            required
+            value={cardNumber.replace(/\W/gi, "").replace(/(.{4})/g, "$1 ")}
             id="cardNumber"
             onChange={handleChange}
             placeholder="e.g. 1234 5678 9123 0000"
@@ -33,6 +35,7 @@ function CardForm({ form, handleChange, handleSubmit }) {
               <div className="date">
                 <input
                   type="text"
+                  required
                   name="month"
                   value={month}
                   onChange={handleChange}
@@ -42,6 +45,7 @@ function CardForm({ form, handleChange, handleSubmit }) {
                 <input
                   type="text"
                   name="year"
+                  required
                   id="year"
                   value={year}
                   onChange={handleChange}
@@ -54,6 +58,7 @@ function CardForm({ form, handleChange, handleSubmit }) {
               <input
                 className="cvc"
                 type="text"
+                required
                 name="cvc"
                 value={cvc}
                 onChange={handleChange}
