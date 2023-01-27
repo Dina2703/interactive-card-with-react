@@ -24,6 +24,7 @@ function CardForm({ form, handleChange, handleSubmit }) {
             required
             value={cardNumber.replace(/\W/gi, "").replace(/(.{4})/g, "$1 ")}
             id="cardNumber"
+            maxLength="19"
             onChange={handleChange}
             placeholder="e.g. 1234 5678 9123 0000"
           />
@@ -37,6 +38,8 @@ function CardForm({ form, handleChange, handleSubmit }) {
                   type="text"
                   required
                   name="month"
+                  pattern="\d*"
+                  maxlength="2"
                   value={month}
                   onChange={handleChange}
                   id="month"
@@ -47,6 +50,8 @@ function CardForm({ form, handleChange, handleSubmit }) {
                   name="year"
                   required
                   id="year"
+                  pattern="\d*"
+                  maxlength="2"
                   value={year}
                   onChange={handleChange}
                   placeholder="YY"
@@ -60,6 +65,8 @@ function CardForm({ form, handleChange, handleSubmit }) {
                 type="text"
                 required
                 name="cvc"
+                pattern="\d*"
+                maxlength="3"
                 value={cvc}
                 onChange={handleChange}
                 id="cvc"
