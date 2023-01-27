@@ -15,13 +15,6 @@ function App() {
     e.preventDefault();
     console.log("submitted");
     console.log(form);
-    setForm({
-      name: "",
-      cardNumber: "",
-      month: "",
-      year: "",
-      cvc: "",
-    });
   };
 
   const handleChange = (e) => {
@@ -43,7 +36,7 @@ function App() {
           handleChange={handleChange}
           handleSubmit={handleSubmit}
         />
-        <CardImg />
+        <CardImg form={form} />
       </div>
     </div>
   );
