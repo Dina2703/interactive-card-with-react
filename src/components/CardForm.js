@@ -1,5 +1,7 @@
-function CardForm({ form, handleChange, handleSubmit }) {
+function CardForm({ form, handleChange, handleSubmit, error }) {
   const { name, cardNumber, month, year, cvc } = form;
+
+  const { cardNumberErr, cardDetails } = error;
 
   return (
     <div className="card__form">
@@ -13,21 +15,25 @@ function CardForm({ form, handleChange, handleSubmit }) {
             value={name}
             onChange={handleChange}
             placeholder="e.g. Jane Appleseed"
-            required
           />
         </div>
         <div className="input__group">
           <label htmlFor="cardNumber">CARD NUMBER</label>
           <input
+            className={cardNumberErr ? "red__border" : ""}
             type="text"
             name="cardNumber"
-            required
             value={cardNumber.replace(/\W/gi, "").replace(/(.{4})/g, "$1 ")}
             id="cardNumber"
             maxLength="19"
             onChange={handleChange}
             placeholder="e.g. 1234 5678 9123 0000"
           />
+          {cardNumberErr ? (
+            <p className="red__msg">Wrong format, numbers only</p>
+          ) : (
+            ""
+          )}
         </div>
         <div className="input__group">
           <div className="grid">
@@ -35,8 +41,8 @@ function CardForm({ form, handleChange, handleSubmit }) {
               <label htmlFor="month">EXP.DATE(MM/YY)</label>
               <div className="date">
                 <input
+                  className={cardDetails ? "red__border" : ""}
                   type="text"
-                  required
                   name="month"
                   pattern="\d*"
                   maxLength="2"
@@ -45,33 +51,35 @@ function CardForm({ form, handleChange, handleSubmit }) {
                   id="month"
                   placeholder="MM"
                 />
+                {cardDetails ? <p className="red__msg">Can't be blank</p> : ""}
                 <input
+                  className={cardDetails ? "red__border" : ""}
                   type="text"
                   name="year"
-                  required
                   id="year"
                   pattern="\d*"
-                  maxlength="2"
+                  maxLength="2"
                   value={year}
                   onChange={handleChange}
                   placeholder="YY"
                 />
+                {cardDetails ? <p className="red__msg">Can't be blank</p> : ""}
               </div>
             </div>
             <div>
               <label htmlFor="cvc">CVC</label>
               <input
-                className="cvc"
+                className={`cvc ${cardDetails ? "red__border" : ""}`}
                 type="text"
-                required
                 name="cvc"
                 pattern="\d*"
-                maxlength="3"
+                maxLength="3"
                 value={cvc}
                 onChange={handleChange}
                 id="cvc"
                 placeholder="e.g. 123"
               />
+              {cardDetails ? <p className="red__msg">Can't be blank</p> : ""}
             </div>
           </div>
         </div>
