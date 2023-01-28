@@ -1,8 +1,10 @@
+import { useState } from "react";
 import CardForm from "./components/CardForm";
 import CardImg from "./components/CardImg";
-import { useState } from "react";
+import Thanks from "./components/Thanks";
 
 function App() {
+  const [submit, setSubmit] = useState(false);
   const [form, setForm] = useState({
     name: "",
     cardNumber: "",
@@ -15,6 +17,14 @@ function App() {
     e.preventDefault();
     console.log("submitted");
     console.log(form);
+    setSubmit(true);
+    setForm({
+      name: "",
+      cardNumber: "",
+      month: "",
+      year: "",
+      cvc: "",
+    });
   };
 
   const handleChange = (e) => {
@@ -24,6 +34,8 @@ function App() {
     }));
   };
 
+  const restart = () => setSubmit(false);
+
   return (
     <div>
       <div className="background__wrapper">
@@ -31,11 +43,15 @@ function App() {
         <div className="white_side"></div>
       </div>
       <div className="container">
-        <CardForm
-          form={form}
-          handleChange={handleChange}
-          handleSubmit={handleSubmit}
-        />
+        {submit ? (
+          <Thanks restart={restart} />
+        ) : (
+          <CardForm
+            form={form}
+            handleChange={handleChange}
+            handleSubmit={handleSubmit}
+          />
+        )}
         <CardImg form={form} />
       </div>
     </div>

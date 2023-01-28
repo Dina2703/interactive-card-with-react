@@ -39,7 +39,7 @@ function CardForm({ form, handleChange, handleSubmit }) {
                   required
                   name="month"
                   pattern="\d*"
-                  maxlength="2"
+                  maxLength="2"
                   value={month}
                   onChange={handleChange}
                   id="month"
@@ -75,7 +75,9 @@ function CardForm({ form, handleChange, handleSubmit }) {
             </div>
           </div>
         </div>
-        <button type="submit">Confirm</button>
+        <button type="submit" className="btn">
+          Confirm
+        </button>
       </form>
     </div>
   );
