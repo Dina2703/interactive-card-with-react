@@ -21,6 +21,7 @@ body {
   font-size: 14px;
   letter-spacing: 0.1rem;
   position: relative;
+  overflow: hidden;
 }
 
 img {
@@ -210,7 +211,7 @@ input {
 
 @media (max-width: 980px) {
   .card {
-    width: 350px;
+    width: 320px;
   }
 
   .front__details > *:first-child {
