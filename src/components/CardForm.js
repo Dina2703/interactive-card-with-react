@@ -26,6 +26,7 @@ function CardForm({ form, handleChange, handleSubmit, error }) {
             value={cardNumber.replace(/\W/gi, "").replace(/(.{4})/g, "$1 ")}
             id="cardNumber"
             maxLength="19"
+            minLength="19"
             onChange={handleChange}
             placeholder="e.g. 1234 5678 9123 0000"
           />

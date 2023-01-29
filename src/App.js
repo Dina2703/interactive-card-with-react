@@ -24,9 +24,11 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log("submitted");
-    // console.log(form);
-    if (/^[0-9]+$/.test(cardNumber)) {
+
+    const re = /^[0-9 ]+$/;
+
+    console.log(re.test(cardNumber));
+    if (cardNumber === "" || re.test(cardNumber) === false) {
       setError((prev) => ({
         ...prev,
         cardNumberErr: true,
@@ -48,19 +50,12 @@ function App() {
       }));
     } else {
       setSubmit(true);
-      setForm({
-        name: "",
-        cardNumber: "",
-        month: "",
-        year: "",
-        cvc: "",
-      });
+
       setError({
         cardNumberErr: false,
         cardDetails: false,
       });
     }
-    console.log(cardNumber.length);
   };
 
   const handleChange = (e) => {
@@ -70,7 +65,16 @@ function App() {
     }));
   };
 
-  const restart = () => setSubmit(false);
+  const restart = () => {
+    setForm({
+      name: "",
+      cardNumber: "",
+      month: "",
+      year: "",
+      cvc: "",
+    });
+    setSubmit(false);
+  };
 
   return (
     <div>
