@@ -22,7 +22,7 @@ body {
   font-size: 14px;
   letter-spacing: 0.1rem;
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 img {
@@ -230,7 +230,7 @@ input {
 @media (max-width: 700px) {
   .background__wrapper {
     grid-template-columns: none;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
   }
   .background__wrapper > *:first-child {
     height: 300px;

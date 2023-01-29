@@ -1,7 +1,7 @@
 function CardForm({ form, handleChange, handleSubmit, error }) {
   const { name, cardNumber, month, year, cvc } = form;
 
-  const { cardNumberErr, cardDetails } = error;
+  const { cardNumberErr, monthErr, yearErr, cvcErr } = error;
 
   return (
     <div className="card__form">
@@ -41,45 +41,52 @@ function CardForm({ form, handleChange, handleSubmit, error }) {
               <label htmlFor="month">EXP.DATE(MM/YY)</label>
               <div className="date">
                 <input
-                  className={cardDetails ? "red__border" : ""}
+                  className={monthErr ? "red__border" : ""}
                   type="text"
                   name="month"
                   pattern="\d*"
                   maxLength="2"
+                  minLength="2"
                   value={month}
                   onChange={handleChange}
                   id="month"
                   placeholder="MM"
                 />
-                {cardDetails ? <p className="red__msg">Can't be blank</p> : ""}
+
                 <input
-                  className={cardDetails ? "red__border" : ""}
+                  className={yearErr ? "red__border" : ""}
                   type="text"
                   name="year"
                   id="year"
                   pattern="\d*"
                   maxLength="2"
+                  minLength="2"
                   value={year}
                   onChange={handleChange}
                   placeholder="YY"
                 />
-                {cardDetails ? <p className="red__msg">Can't be blank</p> : ""}
               </div>
+              {monthErr || yearErr ? (
+                <p className="red__msg">Can't be blank</p>
+              ) : (
+                ""
+              )}
             </div>
             <div>
               <label htmlFor="cvc">CVC</label>
               <input
-                className={`cvc ${cardDetails ? "red__border" : ""}`}
+                className={`cvc ${cvcErr ? "red__border" : ""}`}
                 type="text"
                 name="cvc"
                 pattern="\d*"
                 maxLength="3"
+                minLength="3"
                 value={cvc}
                 onChange={handleChange}
                 id="cvc"
                 placeholder="e.g. 123"
               />
-              {cardDetails ? <p className="red__msg">Can't be blank</p> : ""}
+              {cvcErr ? <p className="red__msg">Can't be blank</p> : ""}
             </div>
           </div>
         </div>

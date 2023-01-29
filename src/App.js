@@ -6,7 +6,9 @@ import Thanks from "./components/Thanks";
 function App() {
   const [error, setError] = useState({
     cardNumberErr: false,
-    cardDetails: true,
+    monthErr: false,
+    yearErr: false,
+    cvcErr: false,
   });
 
   const [submit, setSubmit] = useState(false);
@@ -20,22 +22,29 @@ function App() {
 
   const { cardNumber, month, year, cvc } = form;
 
-  const re = /^[0-9\b]+$/;
-
   const handleSubmit = (e) => {
     e.preventDefault();
     // console.log("submitted");
     // console.log(form);
-    if (cardNumber.length < 18 || re.test(cardNumber)) {
+    if (/^[0-9]+$/.test(cardNumber)) {
       setError((prev) => ({
         ...prev,
         cardNumberErr: true,
       }));
-    }
-    if (month === "" || year === "" || cvc === "") {
+    } else if (month === "") {
       setError((prev) => ({
         ...prev,
-        cardDetails: true,
+        monthErr: true,
+      }));
+    } else if (year === "") {
+      setError((prev) => ({
+        ...prev,
+        yearErr: true,
+      }));
+    } else if (cvc === "") {
+      setError((prev) => ({
+        ...prev,
+        cvcErr: true,
       }));
     } else {
       setSubmit(true);
@@ -45,6 +54,10 @@ function App() {
         month: "",
         year: "",
         cvc: "",
+      });
+      setError({
+        cardNumberErr: false,
+        cardDetails: false,
       });
     }
     console.log(cardNumber.length);
